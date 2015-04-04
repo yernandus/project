@@ -27,9 +27,9 @@
                 </p>
             </div>
             <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" ng-click="liked=!liked">
-                    <i id="like" ng-class="{'icon ion-ios-lightbulb': liked, 'icon ion-ios-lightbulb-outline': !liked}"  style="color: orange"></i>
-                    {{ liked ? knowhow.like_count +1 : knowhow.like_count}}
+                <a class="tab-item" ng-click="knowhow.liked=!knowhow.liked">
+                    <i id="like" ng-class="{'icon ion-ios-lightbulb': knowhow.liked, 'icon ion-ios-lightbulb-outline': !knowhow.liked}"  style="color: orange"></i>
+                    {{ knowhow.liked ? knowhow.like_count +1 : knowhow.like_count}}
                 </a>
                 <a class="tab-item" href="#">
                     <i class="icon ion-share"></i>
