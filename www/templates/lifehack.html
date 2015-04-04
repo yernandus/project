@@ -1,0 +1,21 @@
+<ion-view view-title="write know-how">
+  <ion-content class="padding">
+      <form>
+          <div class="list">
+              <div class="item item-input item-select">
+                  <div class="input-label">
+                      category
+                  </div>
+                  <select ng-options="category.id as category.name_ru for category in categoryList" ng-model = "knowHow.category_id">
+                  </select>
+              </div>
+              <label class="item item-input">
+                  <textarea placeholder="Comments" ng-model="knowHow.text" style="height: 100px" ></textarea>
+              </label>
+              <button class="button button-block button-positive" ng-click="createKnowHow()">
+                  Опубликовать
+              </button>
+          </div>
+      </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-nav-title> 
+
+        <a class="ion-edit" style="float: right" href="#/app/lifehack"></a>
+    </ion-nav-title>
+    <ion-content>
+
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="list card" ng-repeat="knowhow in knowhowList">
+            <div class="item item-avatar">
+                <img ng-src="http://lifehacks.kz/assets/user_profile_images/{{knowhow.user_hash_code}}_small.jpg">
+
+                <h2>{{knowhow.username}}</h2>
+
+                <p>{{knowhow.about_me}}</p>
+            </div>
+            <div class="item item-body">
+				<p>
+					<span class="zs_createddate">{{knowhow.created_date}}</span><span class="zs_category"> - {{knowhow.category}}</span>
+				</p>
+                <p>
+                    {{knowhow.text}}
+                </p>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ng-click="liked=!liked">
+                    <i id="like" ng-class="{'icon ion-ios-lightbulb': liked, 'icon ion-ios-lightbulb-outline': !liked}"  style="color: orange"></i>
+                    {{ liked ? knowhow.like_count +1 : knowhow.like_count}}
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Share
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
