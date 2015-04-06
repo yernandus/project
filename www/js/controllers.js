@@ -83,9 +83,23 @@ angular.module('starter.controllers', [])
             // Store the data-dump of the FORM scope.
             request.success(
                 function (html) {
-                    alert('liked');
-               //     angular.forEach($scope.playlists, function())
-                    $scope.knowhowList[knowhow_id].like_count++;
+                }
+            ).finally(function () {
+                });
+        };;
+        $scope.unlike = function (knowhow_id) {
+            var request = $http({
+                method: "DELETE",
+                url: $rootScope.backEnd + 'like_controller/like?callback=JSON_CALLBACK',
+                data: {
+                    knowhow_id: knowhow_id,
+                    user_token: "8548029d1f56ca3444705d9ace96c48a1415c184a6857887964a941b27b0aec0"
+                }
+            });
+
+            // Store the data-dump of the FORM scope.
+            request.success(
+                function (html) {
                 }
             ).finally(function () {
                 });
@@ -111,7 +125,7 @@ angular.module('starter.controllers', [])
         // An elaborate, custom popup
         function showPopup() {
             var myPopup = $ionicPopup.show({
-                title: 'Успешно опубликован'
+                title: 'У�?пешно опубликован'
             });
             myPopup.then(function (res) {
                 console.log('Tapped!', res);
