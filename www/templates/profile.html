@@ -1,0 +1,42 @@
+<ion-view view-title="Profile">
+  <ion-header-bar>
+    profile page header
+  </ion-header-bar>
+  <ion-content class="padding bg_white">
+      <div class="row">
+        <div class="col col-33">
+          <img src="http://lorempixel.com/100/120/sports" class="responsive_image"/>
+        </div>
+        <div class="col col-67 padding_left_15px">
+          <div class="row">
+            <h3 class="profile_name">User 123</h3>
+          </div>
+          <div class="row">
+            <div class="color_grey">
+              I am a life hacks user
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-50 color_grey line_height_3">256 LFs</div>
+            <div class="col col-50">
+              <button class="button button-positive button-block button-small">
+                Follow
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row padding_top_10px profile_tabs border_top_grey">
+      <ion-tabs class="tabs-striped padding_top_50px">
+        <ion-tab title="lifehacks" href="#/app/profile/lifehacks">
+          <ion-nav-view name="tab-lifehacks" class="margin_top_10px"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="liked" href="#/app/profile/liked">
+          <ion-nav-view name="tab-liked" class="margin_top_10px"></ion-nav-view>
+        </ion-tab>
+      </ion-tabs>
+    </div>
+
+  </ion-content>
+</ion-view>
