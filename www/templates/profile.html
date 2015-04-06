@@ -1,34 +1,43 @@
-<ion-view view-title="Profile">
-  <div class="bar bar-header bar-stable">
-    <h1 class="title">bar-stable</h1>
-  </div>
-  <ion-header-bar>
-    profile page header
-  </ion-header-bar>
+<ion-view view-title="" class="profile_page">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+    <select class="">
+      <option>option 1</option>
+      <option selected>option 2</option>
+      <option>option 3</option>
+    </select>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear"><img src="../img/imgo.jpg" alt="Logo" width="30px" height="30px"/></button>
+    <button class="button button-icon button-clear ion-android-notifications"></button>
+  </ion-nav-buttons>
+
   <ion-content class="padding bg_white">
-      <div class="row">
-        <div class="col col-33">
-          <img src="http://lorempixel.com/100/120/sports" class="responsive_image"/>
+    <div class="row">
+      <div class="col col-33">
+        <img src="http://lorempixel.com/100/120/sports" class="responsive_image"/>
+      </div>
+      <div class="col col-67 padding_left_15px">
+        <div class="row">
+          <h3 class="profile_name">User 123</h3>
         </div>
-        <div class="col col-67 padding_left_15px">
-          <div class="row">
-            <h3 class="profile_name">User 123</h3>
+        <div class="row">
+          <div class="color_grey">
+            I am a life hacks user
           </div>
-          <div class="row">
-            <div class="color_grey">
-              I am a life hacks user
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-50 color_grey line_height_3">256 LFs</div>
-            <div class="col col-50">
-              <button class="button button-positive button-block button-small">
-                Follow
-              </button>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col col-50 color_grey line_height_3">256 LFs</div>
+          <div class="col col-50">
+            <button class="button button-positive button-block button-small">
+              Follow
+            </button>
           </div>
         </div>
       </div>
+    </div>
 
     <div class="row padding_top_10px profile_tabs border_top_grey">
       <ion-tabs class="tabs-striped padding_top_50px">

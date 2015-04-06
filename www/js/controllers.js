@@ -159,11 +159,57 @@ angular.module('starter.controllers', [])
   })
 
   .controller('ProfileCtrl', function ($scope, $stateParams) {
-
+    console.log('in ProfileCtrl')
   })
-  .controller('ProfileLifeHacksCtrl', function ($scope, $stateParams) {
+  .controller('ProfileLifeHacksCtrl', function ($scope, $rootScope, $stateParams, $http, serviceUrls, serverCall) {
+
+    $scope.lifehackedData;
+    var headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic 325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde'
+    };
+
+/*//    Test purpose START
+    var request = $http({
+      method: "PUT",
+      url: $rootScope.backEnd + 'like_controller/like?callback=JSON_CALLBACK',
+      data: {
+        knowhow_id: 1,
+        user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
+      }
+    });
+
+    request.success(
+      function (html) {
+      }
+    ).finally(function () {
+      });
+//    Test purpose END*/
+
+    var config = {
+      method: 'PUT',
+      url: serviceUrls.api_url + serviceUrls.life_hacks,
+      data: {
+        knowhow_id: 1,
+        user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
+      }
+    };
+
+    var lifeHackDataSuccessCallback = function (data, status) {
+      $scope.lifehackedData = data;
+    };
+
+    var lifeHackDataErrorCallback = function (data, status) {
+      $scope.lifehackedData = '';
+    };
+
+    console.log(config)
+    /*serverCall
+     .apiDataCall(config)
+     .then(lifeHackDataSuccessCallback,lifeHackDataErrorCallback)*/
+
 
   })
   .controller('ProfileLikedCtrl', function ($scope, $stateParams) {
-
+    console.log('in ProfileLikedCtrl')
   });
