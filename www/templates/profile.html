@@ -9,9 +9,8 @@
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     <div class="item-input item_input ">
-      <select class="header_select">
-        <option selected>Zhanibek</option>
-        <option >Yernar</option>
+      <select ng-model="selected_category" ng-options="category.name_ru for category in categories_list" class="header_select">
+        <option value="">All</option>
       </select>
       <i class="ion-arrow-down-b" style="padding-left: 55px; color: #fff;"></i>
     </div>
@@ -25,9 +24,11 @@
   <ion-content class="padding bg_white">
     <div class="row">
       <div class="col col-33">
-        <img src="http://lorempixel.com/100/120/sports" class="responsive_image" ng-click="openModal()"/>
+        <!--<img ng-src="http://lorempixel.com/100/120/sports" class="responsive_image" ng-click="openModal()"/>-->
+        <img ng-src="http://lifehacks.kz/assets/user_profile_images/50255a87dd6ce79b89e2caf2235900cca222a1242ae98feacacb74e0c45eb2e4_small.jpg"
+             class="responsive_image" ng-click="openModal()"/>
       </div>
-      <div class="col col-67 padding_left_15px">
+      <div class="col col-67 padding_left_10px">
         <div class="row">
           <h3 class="profile_name">User 123</h3>
         </div>
@@ -47,8 +48,8 @@
       </div>
     </div>
 
-    <div class="row padding_top_10px profile_tabs border_top_grey">
-      <ion-tabs class="tabs-striped padding_top_50px">
+    <div class="row padding_top_10px border_top_grey">
+      <ion-tabs class="tabs-striped width_100p profile_tabs">
         <ion-tab title="lifehacks" href="#/app/profile/lifehacks">
           <ion-nav-view name="tab-lifehacks" class="margin_top_10px"></ion-nav-view>
         </ion-tab>

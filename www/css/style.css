@@ -48,48 +48,27 @@
     font-size: 150%;
 }
 
-/*.responsive_image {
+.responsive_image {
+    min-width: 100%;
     max-width: 100%;
     height: auto;
-}*/
+    border-radius: 5px;
+}
+
 .color_grey {
     color: #888 !important;
 }
 
-.padding_left_15px {
-    padding-left: 15px;
+.padding_left_10px {
+    padding-left: 10px;
 }
 
 .position_relative {
     position: inherit;
 }
 
-.profile_tabs .tabs-striped .tab-title {
-    color: #44AADD;
-}
-
-.profile_tabs .tabs-striped .tab-item.tab-item-active {
-    border-width: 0 0 2px 0;
-    border-color: #44AADD;
-    color: #44AADD;
-}
-
-.profile_tabs .tabs-striped .tab-item.activated {
-    border-width: 0 0 2px 0;
-    border-color: #44AADD;
-    color: #44AADD;
-}
-
-.profile_tabs .tabs-striped .tabs {
-    border-bottom: none;
-}
-
-.profile_tabs {
-
-}
-
-.height_initial {
-    height: initial;
+.height_auto {
+    height: auto;
 }
 
 .pane {
@@ -133,7 +112,7 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     -moz-appearance: none;
     appearance: none;
     position: absolute;
-    top: 6px;
+    top: 8px;
     right: -10px;
     padding: 0px 0px;
     max-width: 100px;
@@ -149,6 +128,7 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
 /*CSS for Select in profile page END*/
 
 .profile_page_logo {
+    padding-top: 4px;
     width: 25px;
     height: auto;
 }
@@ -190,3 +170,17 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
 }
 
 /*CSS for transparent profile image END*/
+
+.width_100p {
+    width: 100%;
+}
+.profile_tabs > .tab-nav {
+    position: static;
+    border-bottom: none;
+    color:#14f;
+}
+.profile_tabs > .tab-nav > .tab-item-active, .profile_tabs > .tab-nav > .tab-item.activated {
+    border-width: 0 0 2px 0;
+    border-color: #14f;
+    color:#14f;
+}

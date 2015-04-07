@@ -158,15 +158,35 @@ angular.module('starter.controllers', [])
     };
   })
 
-  .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal) {
+  .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal, serverCall, serviceUrls) {
     console.log('in ProfileCtrl');
+
+    var getCategoriesSuccessCallback = function (data, status) {
+      $scope.categories_list = data;
+      console.log(data)
+    };
+
+    var getCategoriesErrorCallback = function (data, status) {
+      $scope.categories_list = '';
+    };
+
+    var config = {
+      method: 'GET',
+      url: serviceUrls.api_url + serviceUrls.category_list,
+      user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
+    };
+
+    serverCall
+      .apiDataCall(config)
+      .then(getCategoriesSuccessCallback, getCategoriesErrorCallback)
+
 
     $ionicModal.fromTemplateUrl('my-modal.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
       $scope.modal = modal;
-      $scope.profile_image = 'http://lorempixel.com/250/400/sports';
+      $scope.profile_image = 'http://lifehacks.kz/assets/user_profile_images/50255a87dd6ce79b89e2caf2235900cca222a1242ae98feacacb74e0c45eb2e4_large.jpg';
     });
 
     $scope.openModal = function() {
@@ -192,15 +212,6 @@ angular.module('starter.controllers', [])
   .controller('ProfileLifeHacksCtrl', function ($scope, $rootScope, $stateParams, $http, $ionicModal, serviceUrls, serverCall) {
 
     $scope.lifehackedData;
-    var headers_obj = {
-      'Authorization': 'Basic 325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde'
-    };
-
-    var config = {
-      method: 'GET',
-      url: serviceUrls.api_url + serviceUrls.life_hacks,
-      user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
-    };
 
     var lifeHackDataSuccessCallback = function (data, status) {
       $scope.lifehack_users = data;
@@ -209,6 +220,12 @@ angular.module('starter.controllers', [])
 
     var lifeHackDataErrorCallback = function (data, status) {
       $scope.lifehackedData = '';
+    };
+
+    var config = {
+      method: 'GET',
+      url: serviceUrls.api_url + serviceUrls.life_hacks,
+      user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
     };
 
     serverCall
