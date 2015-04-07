@@ -1,3 +1,9 @@
+<script id="my-modal.html" type="text/ng-template">
+  <div class="modal image-modal transparent" ng-click="closeModal()">
+    <img ng-src="{{profile_image}}" class="fullscreen-image" />
+  </div>
+</script>
+
 <ion-view view-title="" class="profile_page">
 
   <ion-nav-buttons side="left">
@@ -19,7 +25,7 @@
   <ion-content class="padding bg_white">
     <div class="row">
       <div class="col col-33">
-        <img src="http://lorempixel.com/100/120/sports" class="responsive_image"/>
+        <img src="http://lorempixel.com/100/120/sports" class="responsive_image" ng-click="openModal()"/>
       </div>
       <div class="col col-67 padding_left_15px">
         <div class="row">
