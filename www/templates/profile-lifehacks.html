@@ -1,21 +1,23 @@
-<div class="list card height_auto" ng-repeat="lifehack_user in lifehack_users track by lifehack_user.id">
-  <div class="item item-avatar">
-    <img ng-src="http://lifehacks.kz/assets/user_profile_images/{{lifehack_user.user_hash_code}}_small.jpg"/>
+<div>
+  <div class="list card height_auto" ng-repeat="lifehack_user in lifehack_users track by lifehack_user.id">
+    <div class="item item-avatar">
+      <img ng-src="http://lifehacks.kz/assets/user_profile_images/{{lifehack_user.user_hash_code}}_small.jpg"/>
 
-    <h2 ng-bind="lifehack_user.username"></h2>
+      <h2 ng-bind="lifehack_user.username"></h2>
 
-    <p ng-bind="lifehack_user.about_me"></p>
-  </div>
+      <p ng-bind="lifehack_user.about_me"></p>
+    </div>
 
-  <div class="item item-body">
-    <p class=""><span class="color_grey" ng-bind="lifehack_user.created_date"></span> - <a href="#"><span ng-bind="lifehack_user.category"></span></a></p>
-    <p ng-bind="lifehack_user.text"></p>
-  </div>
+    <div class="item item-body">
+      <p class=""><span class="color_grey" ng-bind="lifehack_user.created_date"></span> - <a href="#"><span ng-bind="lifehack_user.category"></span></a></p>
+      <p ng-bind="lifehack_user.text"></p>
+    </div>
 
-  <div class="item tabs tabs-icon-left border_top_grey">
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-      Share
-    </a>
+    <div class="item tabs tabs-icon-left border_top_grey">
+      <a class="tab-item" href="#">
+        <i class="icon ion-share"></i>
+        Share
+      </a>
+    </div>
   </div>
 </div>
