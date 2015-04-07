@@ -9,7 +9,8 @@
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     <div class="item-input item_input ">
-      <select ng-model="selected_category" ng-options="category.name_ru for category in categories_list" class="header_select">
+      <select ng-model="selected_category" ng-options="category.name_ru for category in categories_list track by category.id"
+              class="header_select" ng-change="categoryChanged(selected_category)">
         <option value="">All</option>
       </select>
       <i class="ion-arrow-down-b" style="padding-left: 55px; color: #fff;"></i>

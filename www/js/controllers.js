@@ -158,7 +158,7 @@ angular.module('starter.controllers', [])
     };
   })
 
-  .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal, serverCall, serviceUrls) {
+  .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal, $log, serverCall, serviceUrls) {
     console.log('in ProfileCtrl');
 
     var getCategoriesSuccessCallback = function (data, status) {
@@ -178,8 +178,11 @@ angular.module('starter.controllers', [])
 
     serverCall
       .apiDataCall(config)
-      .then(getCategoriesSuccessCallback, getCategoriesErrorCallback)
+      .then(getCategoriesSuccessCallback, getCategoriesErrorCallback);
 
+    $scope.categoryChanged = function(selected_category){
+      $log.log(selected_category)
+    };
 
     $ionicModal.fromTemplateUrl('my-modal.html', {
       scope: $scope,
