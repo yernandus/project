@@ -47,9 +47,9 @@ angular.module('starter.controllers', [])
 
     function loadFeed() {
       $scope.show();
-
+      alert('loading feed');
       $http
-        .jsonp($rootScope.backEnd + 'knowhow_controller/knowhows?callback=JSON_CALLBACK')
+        .jsonp($rootScope.backEnd + 'lifehack_controller/lifehacks?callback=JSON_CALLBACK')
         .success(function (data, status, headers, config) {
           $ionicLoading.hide();
           //$filter("date")(data.created_date, 'dd.MM.yyyy HH:mm');
@@ -135,7 +135,7 @@ angular.module('starter.controllers', [])
       $scope.show();
       var request = $http({
         method: "PUT",
-        url: $rootScope.backEnd + 'knowhow_controller/knowhow?callback=JSON_CALLBACK',
+        url: $rootScope.backEnd + 'lifehack_controller/lifehack?callback=JSON_CALLBACK',
         data: {
           category_id: $scope.knowHow.category_id,
           text: $scope.knowHow.text,
