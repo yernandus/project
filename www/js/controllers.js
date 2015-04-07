@@ -45,9 +45,10 @@ angular.module('starter.controllers', [])
       $ionicLoading.hide();
     };
 
+    
     function loadFeed() {
       $scope.show();
-      alert('loading feed');
+      console.log('loading feed');
       $http
         .jsonp($rootScope.backEnd + 'lifehack_controller/lifehacks?callback=JSON_CALLBACK')
         .success(function (data, status, headers, config) {
@@ -57,11 +58,7 @@ angular.module('starter.controllers', [])
         })
         .error(function (data, status, headers, config) {
           if (hasBackend) {
-            alert(data + 'data');
-            alert(status + 'status');
-            alert(headers + 'headers');
-            alert(config + 'config');
-            alert('server is not responding');
+            console.log(data + 'data', status + 'status',headers + 'headers',config + 'config','server is not responding');
           }
         }).finally(function () {
           // Stop the ion-refresher from spinning
@@ -83,7 +80,7 @@ angular.module('starter.controllers', [])
       // Store the data-dump of the FORM scope.
       request.success(
         function (html) {
-          alert('liked');
+          console.log('liked');
           //     angular.forEach($scope.playlists, function())
           $scope.knowhowList[knowhow_id].like_count++;
         }
