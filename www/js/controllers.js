@@ -175,7 +175,7 @@ angular.module('starter.controllers', [])
     };
 
     var lifeHackDataSuccessCallback = function (data, status) {
-      $scope.lifehackedData = data;
+      $scope.lifehack_users = data;
       console.log(data)
     };
 

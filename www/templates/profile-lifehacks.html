@@ -1,18 +1,15 @@
-<div class="list card height_initial">
+<div class="list card height_initial" ng-repeat="lifehack_user in lifehack_users">
   <div class="item item-avatar">
     <img src="http://lorempixel.com/100/120/sports">
 
-    <h2>Life hacks User 1</h2>
+    <h2 ng-bind="lifehack_user.username"></h2>
 
-    <p>Software</p>
+    <p ng-bind="lifehack_user.about_me"></p>
   </div>
 
   <div class="item item-body">
-    <p class=""><span class="color_grey">2015-04-06 20:23:24</span> - <a href="#">user</a></p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolorum eaque eum in ipsum? Aliquid animi
-      consequuntur debitis, ea et, excepturi molestias nostrum perferendis placeat porro provident repellat rerum
-      sequi.</p>
+    <p class=""><span class="color_grey" ng-bind="lifehack_user.created_date"></span> - <a href="#"><span ng-bind="lifehack_user.category"></span></a></p>
+    <p ng-bind="lifehack_user.text"></p>
   </div>
 
   <div class="item tabs tabs-icon-left border_top_grey">

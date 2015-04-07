@@ -116,7 +116,6 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     display: none;
 }
 
-
 .item_input {
     width: 100px;
     display: flex;
@@ -126,6 +125,7 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     overflow: hidden;
     padding: 0 32px;
 }
+
 .header_select {
     width: 131px;
     -webkit-appearance: none;
@@ -141,4 +141,9 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     color: #333;
     text-overflow: '';
     white-space: nowrap;
+}
+
+.profile_page_logo {
+    width: 25px;
+    height: auto;
 }
