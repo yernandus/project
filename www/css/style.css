@@ -116,6 +116,7 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     display: none;
 }
 
+/*CSS for Select in profile page START*/
 .item_input {
     width: 100px;
     display: flex;
@@ -123,25 +124,29 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 0 32px;
+    padding: 0 30px;
 }
 
 .header_select {
-    width: 131px;
+    width: 120px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     position: absolute;
     top: 6px;
-    right: -11px;
+    right: -10px;
     padding: 0px 0px;
-    max-width: 95px;
+    max-width: 100px;
     border: none;
     background: rgba(255, 255, 255, 0);
-    color: #333;
+    color: #fff;
     text-overflow: '';
     white-space: nowrap;
 }
+.header_select option {
+    color: #000;
+}
+/*CSS for Select in profile page END*/
 
 .profile_page_logo {
     width: 25px;
