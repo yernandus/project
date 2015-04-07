@@ -83,8 +83,8 @@
     line-height: 3;
 }
 
-[nav-bar-transition="ios"] [nav-bar="active"] .bar {
-    background: #FF923A;
+.bar-stable {
+    background: #FF923A !important;
 }
 
 button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-item {
