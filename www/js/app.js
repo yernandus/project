@@ -93,4 +93,8 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
-});
+})
+
+  .run(function($http) {
+//    $http.defaults.headers.common.Authorization = 'Basic 325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde'
+  });
