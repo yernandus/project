@@ -211,16 +211,19 @@ angular.module('starter.controllers', [])
     $scope.lifeHacks_active = true;
 
     $scope.getLifeHacks = function(){
-      $scope.lifehackedData;
+      $scope.lifehack_users = [];
       $scope.lifeHacks_active = true;
+      $scope.loading = true;
 
       var lifeHackDataSuccessCallback = function (data, status) {
         $scope.lifehack_users = data;
+        $scope.loading = false;
         console.log(data)
       };
 
       var lifeHackDataErrorCallback = function (data, status) {
-        $scope.lifehackedData = '';
+        $scope.lifehack_users = [];
+        $scope.loading = false;
       };
 
       var config = {
