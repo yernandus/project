@@ -78,7 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       views: {
         'tab-lifehacks': {
           templateUrl: "templates/profile-lifehacks.html",
-          controller: 'ProfileLifeHacksCtrl'
+          controller: 'ProfileCtrl'
         }
       }
     })
@@ -87,7 +87,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
       views: {
         'tab-liked': {
           templateUrl: "templates/profile-liked.html",
-          controller: 'ProfileLikedCtrl'
+          controller: 'ProfileCtrl'
         }
       }
     });

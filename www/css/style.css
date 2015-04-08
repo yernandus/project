@@ -32,57 +32,6 @@
     background-color: #ffffff;
 }
 
-.padding_top_10px {
-    padding-top: 10px;
-}
-
-.padding_top_50px {
-    padding-top: 50px;
-}
-
-.margin_top_10px {
-    margin-top: 10px;
-}
-
-.profile_name {
-    font-size: 150%;
-}
-
-.responsive_image {
-    min-width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.color_grey {
-    color: #888 !important;
-}
-
-.padding_left_10px {
-    padding-left: 10px;
-}
-
-.position_relative {
-    position: inherit;
-}
-
-.height_auto {
-    height: auto;
-}
-
-.profile_tabs .pane {
-    overflow: visible;
-}
-
-.border_top_grey {
-    border-top: 1px solid #dddddd !important;
-}
-
-.line_height_3 {
-    line-height: 3;
-}
-
 .bar-stable {
     background: #FF923A !important;
 }
@@ -91,11 +40,7 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     color: #fff;
 }
 
-.profile_page .title, .profile_page.title-center, .profile_page.header-item {
-    display: none;
-}
-
-/*CSS for Select in profile page START*/
+/*CSS for Select in profile select START*/
 .item_input {
     width: 100px;
     display: flex;
@@ -125,7 +70,7 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
 .header_select option {
     color: #000;
 }
-/*CSS for Select in profile page END*/
+/*CSS for Select in profile select END*/
 
 .profile_page_logo {
     padding-top: 4px;
@@ -169,18 +114,11 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     }
 }
 
-/*CSS for transparent profile image END*/
+.profile_tab_inactive {
+    color : #007aff;
+}
 
-.width_100p {
-    width: 100%;
-}
-.profile_tabs > .tab-nav {
-    position: static;
-    border-bottom: none;
-    color:#14f;
-}
-.profile_tabs > .tab-nav > .tab-item-active, .profile_tabs > .tab-nav > .tab-item.activated {
-    border-width: 0 0 2px 0;
-    border-color: #14f;
-    color:#14f;
+.profile_tab_active {
+    color : #0c63ee;
+    border-bottom: 2px solid #0c63ee;
 }

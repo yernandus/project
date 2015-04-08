@@ -1,15 +1,16 @@
 <script id="my-modal.html" type="text/ng-template">
   <div class="modal image-modal transparent" ng-click="closeModal()">
-    <img ng-src="{{profile_image}}" class="fullscreen-image" />
+    <img ng-src="{{profile_image}}" class="fullscreen-image"/>
   </div>
 </script>
 
-<ion-view view-title="" class="profile_page">
+<ion-view view-title="" id="profile_page">
 
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     <div class="item-input item_input ">
-      <select ng-model="selected_category" ng-options="category.name_ru for category in categories_list track by category.id"
+      <select ng-model="selected_category"
+              ng-options="category.name_ru for category in categories_list track by category.id"
               class="header_select" ng-change="categoryChanged(selected_category)">
         <option value="">All</option>
       </select>
@@ -19,46 +20,117 @@
 
   <ion-nav-buttons side="right">
     <button class="button button-clear"><img src="img/imgo.jpg" alt="Logo" class="profile_page_logo"/></button>
-    <button class="button button-clear button-icon ion-android-notifications" style="padding-left: 20px; color: #fff;"></button>
+    <button class="button button-clear button-icon ion-android-notifications"
+            style="padding-left: 20px; color: #fff;"></button>
   </ion-nav-buttons>
 
   <ion-content class="padding bg_white">
-    <div class="row">
-      <div class="col col-33">
-        <!--<img ng-src="http://lorempixel.com/100/120/sports" class="responsive_image" ng-click="openModal()"/>-->
-        <img ng-src="http://lifehacks.kz/assets/user_profile_images/50255a87dd6ce79b89e2caf2235900cca222a1242ae98feacacb74e0c45eb2e4_small.jpg"
-             class="responsive_image" ng-click="openModal()"/>
-      </div>
-      <div class="col col-67 padding_left_10px">
-        <div class="row">
-          <h3 class="profile_name">User 123</h3>
-        </div>
-        <div class="row">
-          <div class="color_grey">
-            I am a life hacks user
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-50 color_grey line_height_3">256 LFs</div>
-          <div class="col col-50">
-            <button class="button button-positive button-block button-small">
-              Follow
-            </button>
-          </div>
+    <div>
+      <div class="list">
+        <div class="item item-thumbnail-left">
+          <img
+              ng-src="http://lifehacks.kz/assets/user_profile_images/50255a87dd6ce79b89e2caf2235900cca222a1242ae98feacacb74e0c45eb2e4_small.jpg"
+              class="" ng-click="openModal()"/>
+
+          <h2>User 123</h2>
+
+          <p>I am a life hacks user</p>
+
+          <p class="row">
+            <span class="col col-50">256 LFs</span>
+        <span class="col col-50">
+          <button class="button button-positive button-block button-small">
+            Follow
+          </button>
+        </span>
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="row padding_top_10px border_top_grey">
-      <ion-tabs class="tabs-striped width_100p profile_tabs">
-        <ion-tab title="lifehacks" href="#/app/profile/lifehacks">
-          <ion-nav-view name="tab-lifehacks" class="margin_top_10px"></ion-nav-view>
-        </ion-tab>
-        <ion-tab title="liked" href="#/app/profile/liked">
-          <ion-nav-view name="tab-liked" class="margin_top_10px"></ion-nav-view>
-        </ion-tab>
-      </ion-tabs>
+    <div id="profile_tabs">
+      <div class="row text-center" style="padding: 15px 0 0 0;">
+        <div class="col col-50" ng-class="{'profile_tab_active' : lifeHacks_active, 'profile_tab_inactive' : !lifeHacks_active}" ng-click="getLifeHacks()">Lifehacks</div>
+        <div class="col col-50" ng-class="{'profile_tab_active' : !lifeHacks_active, 'profile_tab_inactive' : lifeHacks_active}" ng-click="getLiked()">Liked</div>
+      </div>
     </div>
+    <div id="lifehack_users" ng-show="lifeHacks_active">
+      <div class="card" ng-repeat="lifehack_user in lifehack_users track by lifehack_user.id">
+        <div class="item item-avatar">
+          <img ng-src="http://lifehacks.kz/assets/user_profile_images/{{lifehack_user.user_hash_code}}_small.jpg"/>
 
+          <h2 ng-bind="lifehack_user.username"></h2>
+
+          <p ng-bind="lifehack_user.about_me"></p>
+        </div>
+
+        <div class="item item-body">
+          <p class=""><span class="color_grey" ng-bind="lifehack_user.created_date"></span> - <a href="#"><span
+              ng-bind="lifehack_user.category"></span></a></p>
+
+          <p ng-bind="lifehack_user.text"></p>
+        </div>
+
+        <div class="item tabs tabs-icon-left border_top_grey">
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            Share
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="liked_users" ng-hide="lifeHacks_active">
+      <div class="list card height_auto">
+        <div class="item item-avatar">
+          <img src="http://lorempixel.com/100/120/sports">
+
+          <h2>Liked User 1001</h2>
+
+          <p>Software</p>
+        </div>
+
+        <div class="item item-body">
+          <p class=""><span class="color_grey">2015-04-06 20:23:24</span> - <a href="#">user</a></p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolorum eaque eum in ipsum? Aliquid
+            animi
+            consequuntur debitis, ea et, excepturi molestias nostrum perferendis placeat porro provident repellat rerum
+            sequi.</p>
+        </div>
+
+        <div class="item tabs tabs-icon-left border_top_grey">
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            Share
+          </a>
+        </div>
+      </div>
+
+      <div class="list card height_auto">
+        <div class="item item-avatar">
+          <img src="http://lorempixel.com/100/120/sports">
+
+          <h2>Liked User 2</h2>
+
+          <p>Software</p>
+        </div>
+
+        <div class="item item-body">
+          <p class=""><span class="color_grey">2015-04-06 20:23:24</span> - <a href="#">user</a></p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolorum eaque eum in ipsum? Aliquid
+            animi
+            consequuntur debitis, ea et, excepturi molestias nostrum perferendis placeat porro provident repellat rerum
+            sequi.</p>
+        </div>
+
+        <div class="item tabs tabs-icon-left border_top_grey">
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i> Share
+          </a>
+        </div>
+      </div>
+
+    </div>
   </ion-content>
 </ion-view>

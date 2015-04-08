@@ -155,7 +155,7 @@ angular.module('starter.controllers', [])
     };
   })
 
-  .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal, $log, serverCall, serviceUrls) {
+  .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal, $log, $rootScope, $http, serviceUrls, serverCall) {
     console.log('in ProfileCtrl');
 
     var getCategoriesSuccessCallback = function (data, status) {
@@ -208,32 +208,38 @@ angular.module('starter.controllers', [])
       // Execute action
     });
 
-  })
-  .controller('ProfileLifeHacksCtrl', function ($scope, $rootScope, $stateParams, $http, $ionicModal, serviceUrls, serverCall) {
+    $scope.lifeHacks_active = true;
 
-    $scope.lifehackedData;
+    $scope.getLifeHacks = function(){
+      $scope.lifehackedData;
+      $scope.lifeHacks_active = true;
 
-    var lifeHackDataSuccessCallback = function (data, status) {
-      $scope.lifehack_users = data;
-      console.log(data)
+      var lifeHackDataSuccessCallback = function (data, status) {
+        $scope.lifehack_users = data;
+        console.log(data)
+      };
+
+      var lifeHackDataErrorCallback = function (data, status) {
+        $scope.lifehackedData = '';
+      };
+
+      var config = {
+        method: 'GET',
+        url: serviceUrls.api_url + serviceUrls.life_hacks,
+        user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
+      };
+
+      serverCall
+        .apiDataCall(config)
+        .then(lifeHackDataSuccessCallback, lifeHackDataErrorCallback)
+
     };
 
-    var lifeHackDataErrorCallback = function (data, status) {
-      $scope.lifehackedData = '';
+    $scope.getLifeHacks();
+
+    $scope.getLiked = function(){
+      $scope.lifeHacks_active = false;
     };
 
-    var config = {
-      method: 'GET',
-      url: serviceUrls.api_url + serviceUrls.life_hacks,
-      user_token: "325c72d55d5c6c188329849b5da6d7bb70e9e6983bdf8b4a0c39190d7f0ccfde"
-    };
 
-    serverCall
-      .apiDataCall(config)
-      .then(lifeHackDataSuccessCallback, lifeHackDataErrorCallback)
-
-
-  })
-  .controller('ProfileLikedCtrl', function ($scope, $stateParams) {
-    console.log('in ProfileLikedCtrl')
   });
