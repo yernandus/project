@@ -4,5 +4,5 @@ angular.module('starter.services')
     api_url: 'http://lifehacks.kz/index.php/api/',
     life_hacks : 'lifehack_controller/lifehacks/user_id/2',
     category_list : 'category_controller/categories',
-    pages6to9 : 'user_controller/user/id/2'
+    profile_details : 'user_controller/user/id/2'
   });
