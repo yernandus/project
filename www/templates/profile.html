@@ -8,7 +8,7 @@
 
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-    <div class="item-input item_input ">
+    <div class="item-input item_input">
       <select ng-model="selected_category"
               ng-options="category.name_ru for category in categories_list track by category.id"
               class="header_select" ng-change="categoryChanged(selected_category)">
