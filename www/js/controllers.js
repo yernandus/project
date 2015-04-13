@@ -189,7 +189,7 @@ angular.module('starter.controllers', [])
       .apiDataCall(profile_config)
       .then(function (data, status) {
         $scope.profile_details = data[0];
-        console.log('profile : ',data[0])
+        console.log('profile : ', data[0])
       }, function (data, status) {
         $scope.profile_details = '';
       });
@@ -222,9 +222,9 @@ angular.module('starter.controllers', [])
     });
 
     $scope.lifeHacks_active = true;
+    $scope.lifehack_users = [];
 
     $scope.getLifeHacks = function () {
-      $scope.lifehack_users = [];
       $scope.lifeHacks_active = true;
       $scope.loading = true;
 
@@ -253,9 +253,9 @@ angular.module('starter.controllers', [])
 
     $scope.getLifeHacks();
 
-    $scope.getLiked = function () {
-      $scope.lifeHacks_active = false;
-    };
+    /*$scope.getLiked = function () {
+     $scope.lifeHacks_active = false;
+     };*/
 
 
   });
