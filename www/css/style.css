@@ -122,3 +122,6 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     color : #0c63ee;
     border-bottom: 2px solid #0c63ee;
 }
+.color_white {
+    color: #ffffff !important;
+}
