@@ -132,3 +132,6 @@ ion-header-bar.bar.bar-header.disable-user-behavior {
 .color_white {
     color: #ffffff !important;
 }
+.error_message{
+    color: #ee0000 !important;
+}

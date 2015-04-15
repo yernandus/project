@@ -14,18 +14,23 @@
   <ion-content class="bg_white">
     <h4 class="text-center">Login</h4>
 
-    <form ng-submit="loginMe(user)">
+    <form ng-submit="loginMe(user)" name="loginform">
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Email</span>
-          <input type="text" placeholder="Email" ng-model="user.email">
+          <input type="text" placeholder="Email" ng-model="user.email" name="email"
+                 ng-pattern="/^[a-z.]+[a-z0-9._%+-]*@[a-z]+[a-z0-9.-]*\.[a-z]{2,4}$/" required="">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="Password" ng-model="user.password">
-
+          <input type="password" placeholder="Password" ng-model="user.password" required="" name="password">
         </label>
-        <button class="button button-block button-positive">Login</button>
+
+        <div class="padding error_message">
+        <p class="" ng-show="loginform.email.$dirty && loginform.email.$error.pattern">Please enter a valid email id.</p>
+        <p class="" ng-show="loginform.password.$dirty && loginform.password.$error.required">Please enter password.</p>
+        </div>
+        <button class="button button-block button-positive" ng-disabled="!loginform.$valid">Login</button>
         <div>
           <a href="#" class="button-clear color_blue">Forgot Password</a>
           <a href="#/app/signup" class="button-clear color_blue">Signup</a>

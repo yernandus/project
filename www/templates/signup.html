@@ -12,20 +12,27 @@
   <ion-content class="bg_white">
     <h4 class="text-center">Signup</h4>
 
-    <form ng-submit="signup(user)">
+    <form ng-submit="signup(user)" name="signupform">
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Email</span>
-          <input type="text" placeholder="Email" ng-model="user.email">
+          <input type="text" placeholder="Email" ng-model="user.email" name="email"
+                 ng-pattern="/^[a-z.]+[a-z0-9._%+-]*@[a-z]+[a-z0-9.-]*\.[a-z]{2,4}$/" required="">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Username</span>
-          <input type="password" placeholder="Username" ng-model="user.name">
+          <input type="text" placeholder="Username" ng-model="user.name" name="username" required="">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="Password" ng-model="user.password">
+          <input type="password" placeholder="Password" ng-model="user.password" name="password" required="">
         </label>
+        <div class="padding error_message">
+          <p class="" ng-show="signupform.email.$dirty && signupform.email.$error.pattern">Please enter a valid email id.</p>
+          <p class="" ng-show="signupform.username.$dirty && signupform.username.$error.required">Please enter name.</p>
+          <p class="" ng-show="signupform.password.$dirty && signupform.password.$error.required">Please enter password.</p>
+        </div>
+
         <button class="button button-block button-positive">Create Account</button>
       </div>
     </form>
