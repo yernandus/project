@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, sha256) {
     // Form data for the login modal
     $scope.loginData = {};
 
@@ -22,8 +22,9 @@ angular.module('starter.controllers', [])
     };
 
     // Perform the login action when the user submits the login form
-    $scope.doLogin = function () {
-      console.log('Doing login', $scope.loginData);
+    $scope.doLogin = function (userData) {
+      var hash = sha256.encode(userData.password);
+      console.log('Doing login', $scope.loginData, hash);
 
       // Simulate a login delay. Remove this and replace with your login
       // code if using a login system
@@ -280,9 +281,9 @@ angular.module('starter.controllers', [])
     });
 
     $scope.lifeHacks_active = true;
+    $scope.lifehack_users = [];
 
     $scope.getLifeHacks = function () {
-      $scope.lifehack_users = [];
       $scope.lifeHacks_active = true;
       $scope.loading = true;
 
@@ -311,9 +312,9 @@ angular.module('starter.controllers', [])
 
     $scope.getLifeHacks();
 
-    $scope.getLiked = function () {
-      $scope.lifeHacks_active = false;
-    };
+    /*$scope.getLiked = function () {
+     $scope.lifeHacks_active = false;
+     };*/
 
 
   });

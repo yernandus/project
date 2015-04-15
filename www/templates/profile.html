@@ -20,8 +20,8 @@
 
   <ion-nav-buttons side="right">
     <button class="button button-clear"><img src="img/imgo.jpg" alt="Logo" class="profile_page_logo"/></button>
-    <button class="button button-clear button-icon ion-android-notifications"
-            style="padding-left: 20px; color: #fff;"></button>
+    <button class="button button-clear button-icon ion-android-notifications color_white"></button>
+    <button class="button button-clear button-icon ion-ios-refresh-empty color_white"></button>
   </ion-nav-buttons>
 
   <ion-content class="padding bg_white">
@@ -50,8 +50,8 @@
 
     <div id="profile_tabs">
       <div class="row text-center" style="padding: 15px 0 0 0;">
-        <div class="col col-50" ng-class="{'profile_tab_active' : lifeHacks_active, 'profile_tab_inactive' : !lifeHacks_active}" ng-click="getLifeHacks()">Lifehacks</div>
-        <div class="col col-50" ng-class="{'profile_tab_active' : !lifeHacks_active, 'profile_tab_inactive' : lifeHacks_active}" ng-click="getLiked()">Liked</div>
+        <div class="col col-50" ng-class="{'profile_tab_active' : lifeHacks_active, 'profile_tab_inactive' : !lifeHacks_active}" ng-click="lifeHacks_active = !lifeHacks_active">Lifehacks</div>
+        <div class="col col-50" ng-class="{'profile_tab_active' : !lifeHacks_active, 'profile_tab_inactive' : lifeHacks_active}" ng-click="lifeHacks_active = !lifeHacks_active">Liked</div>
       </div>
     </div>
     <div id="lifehack_users" ng-show="lifeHacks_active">
