@@ -33,7 +33,7 @@
           <p class="" ng-show="signupform.password.$dirty && signupform.password.$error.required">Please enter password.</p>
         </div>
 
-        <button class="button button-block button-positive">Create Account</button>
+        <button class="button button-block button-positive" ng-disabled="!signupform.$valid">Create Account</button>
       </div>
     </form>
   </ion-content>
