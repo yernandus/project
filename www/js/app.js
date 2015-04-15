@@ -27,6 +27,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AppCtrl'
       })
 
+      .state('app.home', {
+        url: "/home",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/home.html",
+            controller: 'HomeController'
+          }
+        }
+      })
+
       .state('app.search', {
         url: "/lifehack",
         views: {
@@ -37,14 +47,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-      .state('app.browse', {
-        url: "/browse",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/browse.html"
-          }
-        }
-      })
       .state('app.playlists', {
         url: "/playlists",
         views: {
@@ -64,6 +66,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
+      .state('app.login', {
+        url: "/login",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/login.html",
+            controller: 'LoginCtrl'
+          }
+        }
+      })
+      .state('app.signup', {
+        url: "/signup",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/signup.html",
+            controller: 'SignupCtrl'
+          }
+        }
+      })
+
       .state('app.profile', {
         url: "/profile",
         views: {
@@ -92,7 +113,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/playlists');
+    $urlRouterProvider.otherwise('/app/home');
     if (!ionic.Platform.isIOS()){
       $ionicConfigProvider.scrolling.jsScrolling(false);
     }

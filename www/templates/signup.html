@@ -1,4 +1,4 @@
-<ion-view view-title="" id="login_page">
+<ion-view view-title="" id="signup_page">
 
   <ion-nav-bar>
     <ion-nav-buttons side="left">
@@ -9,25 +9,24 @@
       <button class="button button-clear"><img src="img/imgo.jpg" alt="Logo" class="profile_page_logo"/></button>
     </ion-nav-buttons>
   </ion-nav-bar>
-
   <ion-content class="bg_white">
-    <h4 class="text-center">Login</h4>
+    <h4 class="text-center">Signup</h4>
 
-    <form ng-submit="loginMe(user)">
+    <form ng-submit="signup(user)">
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Email</span>
           <input type="text" placeholder="Email" ng-model="user.email">
         </label>
         <label class="item item-input item-floating-label">
+          <span class="input-label">Username</span>
+          <input type="password" placeholder="Username" ng-model="user.name">
+        </label>
+        <label class="item item-input item-floating-label">
           <span class="input-label">Password</span>
           <input type="password" placeholder="Password" ng-model="user.password">
         </label>
-        <button class="button button-block button-positive">Login</button>
-        <div>
-          <a href="#" class="button-clear color_blue">Forgot Password</a>
-          <a href="#/app/signup" class="button-clear color_blue">Signup</a>
-        </div>
+        <button class="button button-block button-positive">Create Account</button>
       </div>
     </form>
   </ion-content>

@@ -155,6 +155,64 @@ angular.module('starter.controllers', [])
     };
   })
 
+  .controller('LoginCtrl', function ($scope, $stateParams, $location, $log, $rootScope, $http, serviceUrls, serverCall, sha256) {
+
+    $scope.loginMe = function (user) {
+
+      var config = {
+        method: 'PUT',
+        url: serviceUrls.api_url + serviceUrls.login,
+        data: {
+          email: user.email,
+          password: sha256.encode(user.email)
+        }
+      };
+
+      serverCall
+        .apiDataCall(config)
+        .then(function (data, status) {
+          console.log(data.user_token)
+          localStorage.setItem('user_token', data.user_token);
+          $location.path('/app/profile')
+        }, function (data, status) {
+          console.log(data)
+        });
+
+    };
+  })
+
+  .controller('SignupCtrl', function ($scope, $stateParams, $log, $location, $rootScope, $http, serviceUrls, serverCall, sha256) {
+    $scope.signup = function (user) {
+
+      var config = {
+        method: 'PUT',
+        url: serviceUrls.api_url + serviceUrls.login,
+        data: {
+          email: user.email,
+          password: sha256.encode(user.email),
+          name: user.name
+        }
+      };
+
+      serverCall
+        .apiDataCall(config)
+        .then(function (data, status) {
+          console.log(data)
+          localStorage.setItem('user_token', data.user_token);
+          $location.path('/app/profile')
+        }, function (data, status) {
+          console.log(data)
+        });
+
+    };
+  })
+
+  .controller('HomeController', function ($scope, $stateParams, $ionicModal, $log, $rootScope, $http, $location, serviceUrls, serverCall) {
+    console.log('in home')
+    localStorage.removeItem('user_token');
+    $location.path('/app/home')
+  })
+
   .controller('ProfileCtrl', function ($scope, $stateParams, $ionicModal, $log, $rootScope, $http, serviceUrls, serverCall) {
     console.log('in ProfileCtrl');
 
@@ -189,7 +247,7 @@ angular.module('starter.controllers', [])
       .apiDataCall(profile_config)
       .then(function (data, status) {
         $scope.profile_details = data[0];
-        console.log('profile : ',data[0])
+        console.log('profile : ', data[0])
       }, function (data, status) {
         $scope.profile_details = '';
       });

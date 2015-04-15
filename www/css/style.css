@@ -122,3 +122,10 @@ button.button.button-icon.button-clear.ion-navicon, .title.title-center.header-i
     color : #0c63ee;
     border-bottom: 2px solid #0c63ee;
 }
+
+ion-header-bar.bar.bar-header.disable-user-behavior {
+    background-color: rgb(254, 146, 59);
+}
+.color_blue{
+    color: #387EF5 !important;
+}
