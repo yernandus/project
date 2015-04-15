@@ -174,7 +174,7 @@ angular.module('starter.controllers', [])
         .then(function (data, status) {
           console.log(data.user_token)
           localStorage.setItem('user_token', data.user_token);
-          $location.path('/app/profile')
+          $location.path('/app/playlists')
         }, function (data, status) {
           console.log(data)
         });
@@ -184,6 +184,7 @@ angular.module('starter.controllers', [])
 
   .controller('SignupCtrl', function ($scope, $stateParams, $log, $location, $rootScope, $http, serviceUrls, serverCall, sha256) {
     $scope.signup = function (user) {
+      $scope.email_conflict = false;
 
       var config = {
         method: 'PUT',
@@ -198,11 +199,14 @@ angular.module('starter.controllers', [])
       serverCall
         .apiDataCall(config)
         .then(function (data, status) {
-          console.log(data)
+          console.log('Success : ', data);
           localStorage.setItem('user_token', data.user_token);
-          $location.path('/app/profile')
+          $location.path('/app/playlists')
         }, function (data, status) {
-          console.log(data)
+          console.log('Error : ', data);
+          if(data.status == "email_not_available"){
+            $scope.email_conflict = true;
+          }
         });
 
     };

@@ -134,4 +134,5 @@ ion-header-bar.bar.bar-header.disable-user-behavior {
 }
 .error_message{
     color: #ee0000 !important;
+    font-size: 12px !important;
 }

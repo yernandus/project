@@ -31,6 +31,7 @@
           <p class="" ng-show="signupform.email.$dirty && signupform.email.$error.pattern">Please enter a valid email id.</p>
           <p class="" ng-show="signupform.username.$dirty && signupform.username.$error.required">Please enter name.</p>
           <p class="" ng-show="signupform.password.$dirty && signupform.password.$error.required">Please enter password.</p>
+          <p class="" ng-show="email_conflict">Email already exists. Please use another email id.</p>
         </div>
 
         <button class="button button-block button-positive" ng-disabled="!signupform.$valid">Create Account</button>
