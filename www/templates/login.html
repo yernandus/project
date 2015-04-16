@@ -34,7 +34,7 @@
         </div>
         </div>
         <div class="text-center" ng-show="loading"><ion-spinner icon="ios-small"></ion-spinner></div>
-        <button class="button button-full button-positive" ng-disabled="!loginform.$valid">Login</button>
+        <button class="button button-full button-positive" ng-disabled="!loginform.$valid" ng-show="!loading">Login</button>
         <div>
           <a href="#" class="button-clear color_blue">Forgot Password</a>
           <a href="#/app/signup" class="button-clear color_blue">Signup</a>

@@ -23,6 +23,7 @@ angular.module('starter.controllers')
         console.log('Success : ', data);
         localStorage.setItem('user_token', data.user_token);
         $location.path('/app/playlists');
+        $rootScope.loggedin = true;
         $scope.loading = false;
         $scope.signup_error = false;
       }, function (data, status) {
