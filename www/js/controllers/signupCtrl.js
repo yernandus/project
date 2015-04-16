@@ -5,7 +5,7 @@ angular.module('starter.controllers')
 
     var config = {
       method: 'PUT',
-      url: serviceUrls.api_url + serviceUrls.login,
+      url: serviceUrls.api_url + serviceUrls.signup,
       data: {
         email: user.email,
         password: sha256.encode(user.email),
