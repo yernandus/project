@@ -12,7 +12,7 @@
   <ion-content class="bg_white">
     <h4 class="text-center">Signup</h4>
 
-    <form ng-submit="signup(user)" name="signupform">
+    <form ng-submit="createAccount(user)" name="signupform">
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Email</span>
@@ -28,12 +28,13 @@
           <input type="password" placeholder="Password" ng-model="user.password" name="password" required="">
         </label>
         <div class="padding error_message">
-          <p class="" ng-show="signupform.email.$dirty && signupform.email.$error.pattern">Please enter a valid email id.</p>
-          <p class="" ng-show="signupform.username.$dirty && signupform.username.$error.required">Please enter name.</p>
-          <p class="" ng-show="signupform.password.$dirty && signupform.password.$error.required">Please enter password.</p>
+          <span class="" ng-show="signupform.email.$dirty && signupform.email.$error.pattern">Please enter a valid email id.</span>
+          <span class="" ng-show="signupform.username.$dirty && signupform.username.$error.required">Please enter name.</span>
+          <span class="" ng-show="signupform.password.$dirty && signupform.password.$error.required">Please enter password.</span>
           <p class="" ng-show="email_conflict">Email already exists. Please use another email id.</p>
+          <p class="" ng-show="signup_error">Error while creating new account. Please check your details.</p>
         </div>
-
+        <div class="text-center" ng-show="loading"><ion-spinner icon="ios-small"></ion-spinner></div>
         <button class="button button-full button-positive" ng-disabled="!signupform.$valid">Create Account</button>
       </div>
     </form>

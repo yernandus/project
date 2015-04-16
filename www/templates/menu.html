@@ -18,12 +18,12 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item nav-clear menu-close href="#/app/login"> Login </ion-item>
-        <ion-item nav-clear menu-close href="#/app/signup"> Signup </ion-item>
-        <ion-item nav-clear menu-close href="#/app/profile"> Profile </ion-item>
-        <ion-item nav-clear menu-close href="#/app/lifehack"> New lifehack </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists"> Playlists </ion-item>
-        <ion-item nav-clear menu-close href="#/app/home"> Logout </ion-item>
+        <ion-item nav-clear menu-close href="#/app/login" ng-show="!loggedin"> Login </ion-item>
+        <ion-item nav-clear menu-close href="#/app/signup" ng-show="!loggedin"> Signup </ion-item>
+        <ion-item nav-clear menu-close href="#/app/profile" ng-show="loggedin"> Profile </ion-item>
+        <ion-item nav-clear menu-close href="#/app/lifehack" ng-show="loggedin"> New lifehack </ion-item>
+        <ion-item nav-clear menu-close href="#/app/playlists" ng-show="loggedin"> Playlists </ion-item>
+        <ion-item nav-clear menu-close href="#/app/home" ng-show="loggedin"> Logout </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

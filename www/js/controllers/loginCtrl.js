@@ -3,6 +3,9 @@ angular.module('starter.controllers')
 
     $scope.loginMe = function (user) {
 
+      $scope.loading = true;
+      $scope.login_error = false;
+
       var data = {
         email: user.email,
         password: sha256.encode(user.password)
@@ -27,10 +30,15 @@ angular.module('starter.controllers')
           console.log(data);
           if (data.user_token) {
             localStorage.setItem('user_token', data.user_token);
+            $rootScope.loggedin = true;
             $location.path('/app/playlists');
+            $scope.loading = false;
+            $scope.login_error = false;
           }
         }, function (data, status) {
           console.log(data)
+          $scope.login_error = true;
+          $scope.loading = false;
         });
 
     };
