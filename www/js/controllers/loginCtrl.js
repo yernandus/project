@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-  .controller('LoginCtrl', function ($scope, $state, $stateParams, $location, $log, $rootScope, $http, $ionicViewService, serviceUrls, serverCall, sha256) {
+  .controller('LoginCtrl', function ($scope, $state, $stateParams, $location, $log, $rootScope, $http, $ionicHistory, serviceUrls, serverCall, sha256) {
 
     $scope.loginMe = function (user) {
 
@@ -31,7 +31,7 @@ angular.module('starter.controllers')
           if (data.user_token) {
             localStorage.setItem('user_token', data.user_token);
 
-            $ionicViewService.nextViewOptions({
+            $ionicHistory.nextViewOptions({
               disableBack: true
             });
 
